@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-go@v1
         with:
           go-version: ${{ matrix.go }}
-      - name: Start Prism
+      - name: Start Prism # This is a workaround as Github Actions does not currently support passing a command to a service container
         run: docker run -d -p 4010:4010 stoplight/prism:3 mock -h 0.0.0.0 https://bitbucket.org/api/swagger.json
       - name: Wait for Prism to start
         run: sleep 10s
