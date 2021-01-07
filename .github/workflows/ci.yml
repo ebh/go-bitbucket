@@ -17,5 +17,6 @@ jobs:
         uses: actions/setup-go@v1
         with:
           go-version: ${{ matrix.go }}
+      - run: docker -v
       - name: Run tests
         run: make open-api-test
